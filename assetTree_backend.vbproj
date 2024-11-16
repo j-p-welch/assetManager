@@ -6,4 +6,8 @@
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="litedb" Version="5.0.21" />
+  </ItemGroup>
+
 </Project>
