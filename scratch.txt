@@ -1,0 +1,3 @@
+Goals 11/17/2024
+add navigation menu to list, add, and delete LogicalLocations
+add and delete LogicalLocations to database, query and list results in console.
