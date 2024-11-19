@@ -5,8 +5,9 @@
         Dim uInput As Integer
         Dim i As Integer = 0
 
+        Console.Clear()
         Console.WriteLine("Select an option:")
-        Console.WriteLine("1 - View asset tree")
+        Console.WriteLine("1 - Create New Company")
         Console.WriteLine("2 - Modify asset tree")
 
         Do
@@ -19,36 +20,37 @@
 
         Select Case uInput
             Case 1
-                ViewAssetTree()
+                CreateCompany()
             Case 2
-                ModifyAssetTree()
+                'ModifyAssetTree()
             Case Else
                 Debug.WriteLine("Valid case not selected")
         End Select
 
     End Sub
 
-    Public Sub ViewAssetTree()
-        Dim inp As String = Nothing
+    Public Sub CreateCompany()
 
-        Console.WriteLine("***==View Asset Tree==***")
+        Dim inp As String
+
+        Console.Clear()
+
+        Console.WriteLine("Input Company name: ")
         inp = Console.ReadLine()
 
-        If inp = "r" Then
-            Console.Clear()
-            Me.Home()
-        End If
+        Dim company As New Company With {
+            .Name = inp
+        }
+
+        Console.WriteLine("Do you want to create the company " & company.Name & "?")
+
+        Select Case CStr(Console.Read())
+            Case "y"
+            Case "n"
+            Case Else
+        End Select
 
     End Sub
-    Public Sub ModifyAssetTree()
-        Dim inp As String = Nothing
 
-        Console.WriteLine("***==Modify Asset Tree==***")
-        inp = Console.ReadLine()
-
-        If inp = "r" Then
-            Console.Clear()
-            Me.Home()
-        End If
-    End Sub
 End Class
+
