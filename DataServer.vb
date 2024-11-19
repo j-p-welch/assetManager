@@ -1,10 +1,10 @@
 ﻿Imports LiteDB
 Public Class DataServer
-    Public Property FilePath As String
+    Public Shared Property FilePath As String
     Public Property Database As LiteDatabase
-    Public Sub New(filePath As String)
-        Me.FilePath = filePath
-        Me.Database = New LiteDatabase(filePath)
+
+    Public Sub New()
+        Me.Database = New LiteDatabase(DataServer.FilePath)
     End Sub
 
     Public Sub CreateCompany(inp As Company)

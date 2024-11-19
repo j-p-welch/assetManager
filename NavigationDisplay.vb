@@ -1,4 +1,6 @@
-﻿Public Class NavigationDisplay
+﻿Imports LiteDB
+
+Public Class NavigationDisplay
     Private Property pUserInput As Integer
     Public Sub Home()
 
@@ -44,11 +46,20 @@
 
         Console.WriteLine("Do you want to create the company " & company.Name & "?")
 
-        Select Case CStr(Console.Read())
+        Select Case CStr(Console.ReadLine())
             Case "y"
+                Dim db As New LiteDatabase(DataServer.FilePath)
+                Dim col As LiteCollection(Of Company) = db.GetCollection(Of Company)
+                col.Insert(company)
+
             Case "n"
+                Me.Home()
             Case Else
+                Me.Home()
+
         End Select
+
+        Me.Home()
 
     End Sub
 
